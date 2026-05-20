@@ -1,0 +1,89 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build Windows agent
+        run: |
+          if (Test-Path apps/windows-agent/pyproject.toml) {
+            pip install poetry
+            cd apps/windows-agent
+            poetry install
+            poetry run pyinstaller --onefile src/agent/main.py -n ScreenTimeAgent
+          }
+        continue-on-error: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: windows-agent
+          path: apps/windows-agent/dist/**
+          if-no-files-found: ignore
+
+  build-android:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: android-actions/setup-android@v3
+      - run: sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0"
+      - name: Assemble release
+        env:
+          KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          if [ -f apps/android-agent/gradlew ]; then
+            chmod +x apps/android-agent/gradlew
+            if [ -n "$KEYSTORE_BASE64" ]; then
+              echo "$KEYSTORE_BASE64" | base64 -d > /tmp/keystore.jks
+            fi
+            apps/android-agent/gradlew -p apps/android-agent assembleRelease
+          fi
+        continue-on-error: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: android-agent-release
+          path: apps/android-agent/**/build/outputs/apk/**/*.apk
+          if-no-files-found: ignore
+
+  publish:
+    needs: [build-windows, build-android]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+          merge-multiple: true
+      - name: Write release notes with SHA-256
+        run: |
+          {
+            echo "## Checksums"
+            find artifacts -type f 2>/dev/null | while read -r f; do
+              echo "sha256: $(sha256sum "$f" | awk '{print $1}')  $(basename "$f")"
+            done
+          } > release-body.md
+          echo "" >> release-body.md
+          echo "Tag: ${{ github.ref_name }}" >> release-body.md
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: artifacts/**/*
+          body_path: release-body.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

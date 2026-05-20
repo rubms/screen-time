@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://screen-time-control.dev/schemas/rules.json",
+  "type": "object",
+  "required": ["version", "weekly", "defaults", "targets"],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "integer", "minimum": 1 },
+    "weekly": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["schedule", "dailyTotalMinutes"],
+        "properties": {
+          "schedule": {
+            "type": "array",
+            "items": { "$ref": "common.json#/definitions/scheduleWindow" }
+          },
+          "dailyTotalMinutes": { "type": ["integer", "null"], "minimum": 0 }
+        }
+      }
+    },
+    "defaults": {
+      "type": "object",
+      "required": ["warningLeadMinutes", "gracePeriodSeconds"],
+      "properties": {
+        "warningLeadMinutes": { "type": "integer", "minimum": 0 },
+        "gracePeriodSeconds": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "targets": {
+      "type": "array",
+      "items": { "$ref": "rules-target.json" }
+    }
+  }
+}

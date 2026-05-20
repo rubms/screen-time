@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Screen Time Control</string>
+    <string name="accessibility_service_description">Monitors foreground apps and browser URLs for parental screen time enforcement.</string>
+    <string name="device_admin_explanation">Device admin prevents uninstall without parent approval.</string>
+    <string name="device_admin_enabled">Device admin enabled</string>
+    <string name="device_admin_disabled">Device admin disabled</string>
+    <string name="pairing_code_invalid">Enter a 6-character pairing code</string>
+    <string name="pairing_success">Paired successfully</string>
+    <string name="pairing_failed">Pairing failed: %1$s</string>
+    <string name="lockout_default">Screen time limit reached</string>
+    <string name="lockout_countdown">Closing in %1$d…</string>
+    <string name="lockout_accessibility">Re-enable Accessibility to unlock</string>
+    <string name="accessibility_required_title">Accessibility required</string>
+    <string name="accessibility_required_body">Re-enable Screen Time Control accessibility after reboot</string>
+    <string name="update_available_title">Update available</string>
+    <string name="update_available_body">Tap to install the latest Screen Time Control agent</string>
+</resources>

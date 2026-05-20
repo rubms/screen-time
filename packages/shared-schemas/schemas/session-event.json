@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://screen-time-control.dev/schemas/session-event.json",
+  "type": "object",
+  "required": ["eventType", "at", "localDate", "childId", "deviceId", "platform"],
+  "properties": {
+    "eventType": { "type": "string" },
+    "at": { "type": "string" },
+    "serverAt": {},
+    "localDate": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "childId": { "type": "string" },
+    "deviceId": { "type": "string" },
+    "platform": { "type": "string" },
+    "agentVersion": { "type": "string" },
+    "app": { "type": "object" },
+    "url": { "type": "object" },
+    "targetId": { "type": "string" },
+    "category": { "$ref": "common.json#/definitions/category" },
+    "durationMs": { "type": "integer" },
+    "endedReason": { "type": "string" },
+    "remainingMinutes": { "type": "number" },
+    "warningKind": { "type": "string" },
+    "closeMethod": { "type": "string" },
+    "tamperKind": { "type": "string" }
+  }
+}

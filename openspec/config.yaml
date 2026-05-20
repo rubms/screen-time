@@ -1,0 +1,73 @@
+schema: spec-driven
+
+context: |
+  Product: A parental screen-time control system targeting Windows + Android
+  child devices, with a web dashboard for parents. The goal is to limit and
+  account for the screen time of children, per app and per browser URL, with
+  daily quotas, a global daily schedule, warnings, and forced close when limits
+  are exceeded. All data is stored in a single Firebase project per family
+  (Firestore + FCM + Hosting + Auth).
+
+  Repository layout (monorepo):
+    /apps
+      /windows-agent     # Python 3.12 + pywin32 + UI Automation, packaged with PyInstaller
+      /android-agent     # Kotlin + Gradle CLI (no Android Studio required), AccessibilityService + foreground Service
+      /web-dashboard     # React 18 + Vite + TypeScript + Tailwind, deployed to Firebase Hosting
+    /packages
+      /shared-schemas    # JSON Schema + generated TS/Python/Kotlin types for Firestore documents and rules
+      /shared-rules-engine # Pure logic for evaluating quotas / schedules / categories (TS + ported to Python + Kotlin)
+    /firebase
+      firestore.rules
+      firestore.indexes.json
+      functions/         # TypeScript Cloud Functions (optional; for server-side enforcement of temp unlocks, scheduled aggregations)
+    /openspec
+    /thoughts
+
+  Tech stack:
+    - Windows agent: Python 3.12, pywin32, comtypes (UIAutomationCore), psutil,
+      pydantic, firebase-admin SDK (service-account creds bound to device),
+      packaged with PyInstaller (--onefile) and installed as a Windows Service
+      via NSSM or python-windows-service. Tray UI in pystray.
+    - Android agent: Kotlin 1.9+, Android Gradle Plugin via `./gradlew` CLI only
+      (Android command-line tools, no Studio). Uses AccessibilityService for
+      foreground app + browser URL detection, DeviceAdminReceiver for
+      tamper-resistance, foreground Service for continuous tracking, WorkManager
+      for sync, Firebase Android SDK (Auth via custom token, Firestore, FCM).
+    - Web dashboard: React 18 + Vite + TypeScript + Tailwind CSS + shadcn/ui,
+      Firebase Web SDK (Auth with Google sign-in, Firestore real-time
+      subscriptions), recharts for graphs.
+    - Backend: Firebase only. Firestore for state + events, Firebase Auth
+      (Google sign-in for parents, custom-token auth for child devices),
+      Firebase Cloud Functions (TypeScript) for: pairing-code generation,
+      device-token issuance, daily aggregation rollups, validating temp-unlock
+      requests, GitHub-Releases update-channel proxy.
+    - CI: GitHub Actions builds Windows .exe (windows-latest runner) and
+      Android .apk (ubuntu-latest with command-line SDK), publishes to GitHub
+      Releases.
+
+  Conventions:
+    - Conventional Commits.
+    - Documentation: every change ships a top-level README in the affected app/
+      package describing how to build and run locally.
+    - Testing: Python uses pytest; Kotlin uses JUnit5 + Espresso (instrumented
+      tests run via emulator started from CLI); TypeScript uses Vitest +
+      Playwright for the dashboard. Shared rules-engine has parity tests across
+      all three language ports (same fixture JSON, same expected outputs).
+    - Domain language: child, family, device, profile (per-child rules),
+      category (BLOCKED / LIMITED / ALLOWED), app-target, url-target,
+      daily-quota, weekly-schedule, global-schedule, session-event,
+      temp-unlock, tamper-event, pairing-code.
+
+rules:
+  proposal:
+    - Always include a "Non-goals" section.
+    - Explicitly call out platform-specific risks (e.g., browser UI Automation
+      flakiness, Android Accessibility revocation).
+  design:
+    - "Include a Firestore data model section with collection paths and document shapes."
+    - "Include sequence diagrams (mermaid) for at least: pairing, focus-event tracking, warning-then-close, and temp-unlock."
+    - "Document tamper-resistance strategy per platform."
+  tasks:
+    - "Group tasks by deliverable (windows-agent, android-agent, web-dashboard, firebase, shared, ci) and number them."
+    - "Each task must include acceptance criteria (a brief checklist or one or more Gherkin scenarios when behaviour is non-trivial)."
+    - "Break tasks into chunks of max ~4 hours of focused coding-agent work."

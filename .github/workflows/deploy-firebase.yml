@@ -1,0 +1,32 @@
+name: Deploy Firebase
+
+on:
+  workflow_dispatch:
+    inputs:
+      project_id:
+        description: Firebase project ID
+        required: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile || pnpm install
+      - run: npm exec pnpm@9.15.0 --filter @screen-time-control/web-dashboard build
+      - uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+      - uses: google-github-actions/setup-gcloud@v2
+      - run: npm install -g firebase-tools
+      - run: |
+          cd firebase
+          echo "{\"projects\":{\"default\":\"${{ inputs.project_id }}\"}}" > .firebaserc
+          firebase deploy --only firestore:rules,firestore:indexes,functions,hosting --project "${{ inputs.project_id }}"

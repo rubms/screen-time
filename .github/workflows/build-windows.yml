@@ -1,0 +1,41 @@
+name: Build Windows agent
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, master]
+    paths:
+      - "apps/windows-agent/**"
+      - "packages/**"
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: |
+          pip install poetry
+          cd apps/windows-agent
+          poetry install
+        continue-on-error: true
+      - name: Build agent and installer
+        run: |
+          cd apps/windows-agent
+          poetry run pyinstaller --onefile src/agent/main.py -n ScreenTimeAgent
+          if (Test-Path installer/setup.iss) {
+            choco install innosetup -y
+            iscc installer/setup.iss
+          }
+        continue-on-error: true
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-agent
+          path: |
+            apps/windows-agent/dist/**
+            apps/windows-agent/installer/Output/**
+          if-no-files-found: warn

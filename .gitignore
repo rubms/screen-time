@@ -1,0 +1,162 @@
+# Screen Time Control monorepo
+# apps: web-dashboard (Vite/React), windows-agent (Python), android-agent (Kotlin)
+# packages: shared-rules-engine, shared-schemas | firebase: functions, hosting, emulators
+
+# --- OS ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# --- IDE / editors ---
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json.example
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# --- Environment & secrets (never commit) ---
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.p12
+*.jks
+*.keystore
+**/google-services.json
+!**/google-services.json.example
+firebase-service-account*.json
+*-service-account.json
+
+# --- Node.js / pnpm (root, web-dashboard, packages/*, firebase/functions) ---
+node_modules/
+.pnpm-store/
+.pnpm-debug.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Build outputs (Vite, tsc, shared packages)
+dist/
+**/dist/
+build/
+**/build/
+!**/build.gradle
+!**/build.gradle.kts
+*.tsbuildinfo
+.turbo/
+.cache/
+.parcel-cache/
+.vite/
+vite.config.ts.timestamp-*
+
+# Test & coverage (Vitest, Playwright, Jest-style)
+coverage/
+**/coverage/
+.nyc_output/
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+*.lcov
+
+# --- Python / Poetry (apps/windows-agent) ---
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+ENV/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.tox/
+.nox/
+htmlcov/
+.coverage
+.coverage.*
+*.egg
+*.egg-info/
+.eggs/
+pip-log.txt
+pip-delete-this-directory.txt
+*.manifest
+*.spec
+
+# PyInstaller / Windows agent artifacts
+apps/windows-agent/dist/
+apps/windows-agent/build/
+*.exe
+installer/Output/
+
+# --- Kotlin / Gradle / Android (apps/android-agent) ---
+.gradle/
+**/.gradle/
+local.properties
+**/local.properties
+*.apk
+*.aab
+*.ap_
+*.dex
+.cxx/
+.externalNativeBuild/
+captures/
+output.json
+
+# Android Studio / IntelliJ (android subtree may also have .gitignore)
+.kotlin/
+
+# --- Firebase ---
+.firebase/
+firebase-debug.log
+firebase-debug.*.log
+firestore-debug.log
+ui-debug.log
+pubsub-debug.log
+database-debug.log
+firebase-export*/
+firebase/hosting-public/
+
+# Cloud Functions compiled output (see firebase/functions/.gitignore)
+firebase/functions/lib/
+firebase/functions/node_modules/
+
+# --- Logs & temp ---
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# --- Misc tooling ---
+.eslintcache
+.stylelintcache
+*.local
+.husky/_
+.terraform/
+*.orig

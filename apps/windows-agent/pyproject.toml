@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "screen-time-windows-agent"
+version = "0.1.0"
+description = "Screen Time Control Windows child agent"
+authors = ["Screen Time Control"]
+readme = "README.md"
+packages = [
+  { include = "screen_time_agent", from = "src" },
+  { include = "screen_time_rules", from = "src" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pydantic = ">=2,<3"
+eval-type-backport = ">=0.2"
+psutil = ">=5.9"
+firebase-admin = ">=6.5"
+google-cloud-firestore = ">=2.16"
+pystray = ">=0.19"
+pillow = ">=10.0"
+bcrypt = ">=4.1"
+keyring = ">=25.0"
+requests = ">=2.31"
+pywin32 = { version = ">=306", markers = "sys_platform == 'win32'" }
+comtypes = { version = ">=1.4", markers = "sys_platform == 'win32'" }
+# Windows toasts: pip install "winrt-Windows.UI.Notifications>=2.0" "winrt-runtime>=2.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=8.0"
+pytest-cov = ">=5.0"
+ruff = ">=0.4"
+mypy = ">=1.10"
+types-requests = ">=2.31"
+
+[tool.poetry.scripts]
+screen-time-agent = "screen_time_agent.__main__:main"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+packages = ["screen_time_agent", "screen_time_rules"]
+mypy_path = "src"

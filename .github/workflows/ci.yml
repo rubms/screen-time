@@ -1,0 +1,157 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main, master]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pnpm-test:
+    name: pnpm test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile || pnpm install
+      - run: pnpm test
+
+  rules-parity:
+    name: rules-engine parity
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: pnpm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - run: pnpm install --frozen-lockfile || pnpm install
+      - run: chmod +x scripts/parity-check.sh && ./scripts/parity-check.sh
+
+  schema-gen-check:
+    name: schema codegen clean
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile || pnpm install
+      - run: chmod +x scripts/check-gen-clean.sh && ./scripts/check-gen-clean.sh
+
+  pytest:
+    name: pytest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run pytest (when present)
+        run: |
+          if [ -f apps/windows-agent/pyproject.toml ]; then
+            pip install poetry
+            cd apps/windows-agent && poetry install
+            poetry run ruff check src tests
+            poetry run mypy src --strict
+            poetry run pytest
+          else
+            echo "Skipping pytest — windows-agent not yet present"
+          fi
+
+  gradle-test:
+    name: Gradle test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - name: Run Gradle tests (when present)
+        run: |
+          if [ -f apps/android-agent/gradlew ]; then
+            chmod +x apps/android-agent/gradlew
+            apps/android-agent/gradlew -p apps/android-agent test detekt ktlintCheck
+          else
+            echo "Skipping Gradle — android-agent not yet present"
+          fi
+
+  firebase-integration:
+    name: Firebase emulator integration
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: pnpm
+      - name: Integration tests (when firebase config exists)
+        run: |
+          if [ -f firebase/firebase.json ]; then
+            npm install -g firebase-tools
+            firebase emulators:exec --only auth,firestore,functions "pnpm test"
+          else
+            echo "Skipping emulator suite — firebase/ not yet present"
+          fi
+
+  web-e2e:
+    name: Dashboard Playwright
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile || pnpm install
+      - run: pnpm --filter @screen-time-control/web-dashboard exec playwright install --with-deps chromium
+      - run: pnpm --filter @screen-time-control/web-dashboard test:e2e
+
+  android-instrumented:
+    name: Android Espresso (emulator)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: android-actions/setup-android@v3
+      - run: sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0"
+      - uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          script: |
+            chmod +x apps/android-agent/gradlew
+            apps/android-agent/gradlew -p apps/android-agent connectedCheck

@@ -1,0 +1,109 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /families/{fid} {
+      function isParent() {
+        return request.auth != null
+          && exists(/databases/$(database)/documents/families/$(fid)/parents/$(request.auth.uid));
+      }
+
+      function isDevice() {
+        return request.auth != null
+          && request.auth.token.role == 'device'
+          && request.auth.token.familyId == fid;
+      }
+
+      function isOwnDevice(did) {
+        return isDevice() && request.auth.token.deviceId == did;
+      }
+
+      function deviceDoc(did) {
+        return get(/databases/$(database)/documents/families/$(fid)/devices/$(did));
+      }
+
+      function deviceNotRevoked(did) {
+        return deviceDoc(did).data.revoked == false;
+      }
+
+      function deviceAllowedFieldsOnly() {
+        return request.resource.data.diff(resource.data).changedKeys()
+          .hasOnly(['lastSeenAt', 'installedVersion', 'hardware', 'lastEventAt']);
+      }
+
+      // Family root document
+      allow read: if isParent();
+      allow create: if request.auth != null
+        && request.auth.uid == request.resource.data.ownerUid;
+      allow update: if isParent()
+        && request.auth.uid == resource.data.ownerUid;
+      allow delete: if false;
+
+      match /parents/{uid} {
+        allow read: if isParent();
+        // Owner bootstrap: first parent doc for the family owner.
+        allow create: if isParent()
+          || (request.auth != null
+            && request.auth.uid == uid
+            && get(/databases/$(database)/documents/families/$(fid)).data.ownerUid
+              == request.auth.uid);
+        allow update: if isParent();
+        allow delete: if isParent() && resource.data.role != 'owner';
+      }
+
+      match /children/{cid} {
+        allow read: if isParent()
+          || (isDevice() && request.auth.token.childId == cid);
+        allow create, update, delete: if isParent();
+
+        match /rules/{rid} {
+          allow read: if isParent() || isDevice();
+          allow write: if isParent();
+        }
+
+        match /dailyRollups/{date} {
+          allow read: if isParent();
+          allow write: if false;
+        }
+      }
+
+      match /devices/{did} {
+        allow read: if isParent() || isOwnDevice(did);
+        // Devices are created by redeemPairingCode (Admin SDK bypasses rules).
+        allow create: if false;
+        allow update: if isParent()
+          || (isOwnDevice(did) && deviceNotRevoked(did) && deviceAllowedFieldsOnly());
+        allow delete: if false;
+
+        match /events/{eid} {
+          allow read: if isParent();
+          allow create: if isOwnDevice(did)
+            && deviceNotRevoked(did)
+            && request.resource.data.deviceId == did
+            && request.resource.data.childId == request.auth.token.childId
+            && request.resource.data.keys().hasAll([
+              'eventType', 'at', 'localDate', 'childId', 'deviceId',
+              'platform', 'agentVersion', 'app', 'targetId', 'category'
+            ]);
+          allow update, delete: if false;
+        }
+      }
+
+      match /temp-unlocks/{unlockId} {
+        allow read: if isParent()
+          || (isDevice()
+            && resource.data.deviceId == request.auth.token.deviceId);
+        allow create, update: if isParent();
+        allow delete: if false;
+      }
+
+      match /pairingCodes/{code} {
+        allow read, write: if isParent();
+      }
+
+      match /private/secrets {
+        allow read, write: if isParent();
+      }
+    }
+  }
+}

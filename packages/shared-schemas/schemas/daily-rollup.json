@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://screen-time-control.dev/schemas/daily-rollup.json",
+  "type": "object",
+  "required": ["localDate", "childId", "totalLimitedMinutes"],
+  "properties": {
+    "localDate": { "type": "string" },
+    "childId": { "type": "string" },
+    "totalLimitedMinutes": { "type": "number" },
+    "totalAllowedMinutes": { "type": "number" },
+    "totalBlockedAttempts": { "type": "integer" },
+    "perTarget": { "type": "object" },
+    "warnings": { "type": "object" },
+    "forceCloses": { "type": "object" },
+    "scheduleAdherence": { "type": "object" },
+    "tamperAttempts": { "type": "integer" }
+  }
+}

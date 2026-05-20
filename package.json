@@ -1,0 +1,35 @@
+{
+  "name": "screen-time-control",
+  "private": true,
+  "packageManager": "pnpm@9.15.0",
+  "scripts": {
+    "prepare": "husky",
+    "test": "pnpm -r --if-present test",
+    "build": "pnpm -r --if-present build",
+    "lint": "pnpm -r --if-present lint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "gen:all": "pnpm --filter @screen-time-control/shared-schemas run gen",
+    "build:dashboard": "pnpm --filter @screen-time-control/web-dashboard run build",
+    "sync:hosting": "bash firebase/scripts/sync-hosting.sh",
+    "build:hosting": "pnpm run build:dashboard && pnpm run sync:hosting",
+    "dev:dashboard": "pnpm --filter @screen-time-control/web-dashboard run dev"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "globals": "^15.14.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.11",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.18.2"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,mjs,cjs,json,md,yml,yaml}": "prettier --write",
+    "apps/windows-agent/**/*.py": "ruff format",
+    "packages/shared-schemas/schemas/**/*.json": "prettier --write"
+  }
+}

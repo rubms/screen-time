@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://screen-time-control.dev/schemas/device.json",
+  "type": "object",
+  "required": ["childId", "platform", "displayName", "pairedAt", "revoked"],
+  "properties": {
+    "childId": { "type": "string" },
+    "platform": { "type": "string", "enum": ["windows", "android"] },
+    "displayName": { "type": "string" },
+    "pairedAt": {},
+    "pairedByUid": { "type": "string" },
+    "installedVersion": { "type": "string" },
+    "updateChannel": { "type": "string", "enum": ["stable", "beta"] },
+    "lastSeenAt": {},
+    "lastEventAt": {},
+    "revoked": { "type": "boolean" },
+    "hardware": { "type": "object" }
+  }
+}

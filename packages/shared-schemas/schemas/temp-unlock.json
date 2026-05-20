@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://screen-time-control.dev/schemas/temp-unlock.json",
+  "type": "object",
+  "required": ["deviceId", "childId", "scope", "issuedAt", "expiresAt", "revoked"],
+  "properties": {
+    "deviceId": { "type": "string" },
+    "childId": { "type": "string" },
+    "scope": {
+      "type": "string",
+      "enum": ["schedule", "schedule+quotas", "add-minutes"]
+    },
+    "target": { "type": "string" },
+    "additionalMinutes": { "type": "integer", "minimum": 1, "maximum": 240 },
+    "durationMinutes": { "type": "integer", "minimum": 1, "maximum": 240 },
+    "issuedAt": {},
+    "expiresAt": {},
+    "issuedByUid": { "type": "string" },
+    "reason": { "type": "string" },
+    "revoked": { "type": "boolean" }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://screen-time-control.dev/schemas/pairing-code.json",
+  "type": "object",
+  "required": ["childId", "expiresAt", "redeemed", "createdByUid"],
+  "properties": {
+    "childId": { "type": "string" },
+    "expiresAt": {},
+    "redeemed": { "type": "boolean" },
+    "createdByUid": { "type": "string" },
+    "redeemedAt": {},
+    "redeemedDeviceId": { "type": "string" }
+  }
+}

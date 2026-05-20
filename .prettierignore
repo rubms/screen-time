@@ -1,0 +1,12 @@
+node_modules
+dist
+build
+.poetry
+pnpm-lock.yaml
+**/poetry.lock
+apps/android-agent/.gradle
+apps/android-agent/**/build
+apps/windows-agent/dist
+.firebase
+packages/shared-schemas/python
+packages/shared-schemas/kotlin

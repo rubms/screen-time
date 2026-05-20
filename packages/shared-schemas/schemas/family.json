@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://screen-time-control.dev/schemas/family.json",
+  "type": "object",
+  "required": ["ownerUid", "displayName", "createdAt", "schemaVersion"],
+  "properties": {
+    "ownerUid": { "type": "string" },
+    "displayName": { "type": "string" },
+    "createdAt": {},
+    "parentPinHash": { "type": ["string", "null"] },
+    "schemaVersion": { "type": "integer" }
+  }
+}

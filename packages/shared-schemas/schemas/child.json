@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://screen-time-control.dev/schemas/child.json",
+  "type": "object",
+  "required": ["displayName", "avatarColor", "timezone", "archived"],
+  "properties": {
+    "displayName": { "type": "string" },
+    "avatarColor": { "type": "string" },
+    "timezone": { "type": "string" },
+    "archived": { "type": "boolean" },
+    "createdAt": {}
+  }
+}

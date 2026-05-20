@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://screen-time-control.dev/schemas/rules-target.json",
+  "oneOf": [
+    { "$ref": "#/$defs/appTarget" },
+    { "$ref": "#/$defs/urlTarget" }
+  ],
+  "$defs": {
+    "appTarget": {
+      "type": "object",
+      "required": ["kind", "id", "displayName", "platform", "matchers", "category"],
+      "properties": {
+        "kind": { "const": "app" },
+        "id": { "type": "string" },
+        "displayName": { "type": "string" },
+        "platform": { "$ref": "common.json#/definitions/platform" },
+        "matchers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["platform", "matcher"],
+            "properties": {
+              "platform": { "$ref": "common.json#/definitions/platform" },
+              "matcher": { "type": "string" },
+              "windowTitlePattern": { "type": "string" }
+            }
+          }
+        },
+        "category": { "$ref": "common.json#/definitions/category" },
+        "dailyQuotaMinutes": { "$ref": "common.json#/definitions/dailyQuotaMinutes" },
+        "warningLeadMinutes": { "type": "integer" },
+        "gracePeriodSeconds": { "type": "integer" }
+      }
+    },
+    "urlTarget": {
+      "type": "object",
+      "required": ["kind", "id", "displayName", "pattern", "category"],
+      "properties": {
+        "kind": { "const": "url" },
+        "id": { "type": "string" },
+        "displayName": { "type": "string" },
+        "pattern": { "type": "string" },
+        "category": { "$ref": "common.json#/definitions/category" },
+        "dailyQuotaMinutes": { "$ref": "common.json#/definitions/dailyQuotaMinutes" },
+        "warningLeadMinutes": { "type": "integer" },
+        "gracePeriodSeconds": { "type": "integer" }
+      }
+    }
+  }
+}

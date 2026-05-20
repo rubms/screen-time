@@ -1,0 +1,4880 @@
+{
+  "cases": [
+    {
+      "id": "allowed-app",
+      "activity": {
+        "app": "spotify.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 120
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 120
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 120
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 120
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 120
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 120
+          },
+          "sun": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 120
+          }
+        },
+        "targets": [
+          {
+            "kind": "app",
+            "id": "spotify",
+            "displayName": "Spotify",
+            "platform": "windows",
+            "matchers": [
+              {
+                "platform": "windows",
+                "matcher": "spotify.exe"
+              }
+            ],
+            "category": "ALLOWED"
+          }
+        ]
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "tue",
+        "minutesSinceMidnight": 600,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "ALLOWED"
+      }
+    },
+    {
+      "id": "blocked-app",
+      "activity": {
+        "app": "discord.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "sun": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": [
+          {
+            "kind": "app",
+            "id": "discord",
+            "displayName": "Discord",
+            "platform": "windows",
+            "matchers": [
+              {
+                "platform": "windows",
+                "matcher": "discord.exe"
+              }
+            ],
+            "category": "BLOCKED"
+          }
+        ]
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "tue",
+        "minutesSinceMidnight": 600,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "BLOCKED"
+      }
+    },
+    {
+      "id": "unknown-default-limited-ok",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "sun": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "tue",
+        "minutesSinceMidnight": 600,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "LIMITED_OK",
+        "remainingMinutes": 600,
+        "warnAt": 595
+      }
+    },
+    {
+      "id": "outside-schedule",
+      "activity": {
+        "app": "chrome.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 120
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 120
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 120
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 120
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 120
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 120
+          },
+          "sun": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 120
+          }
+        },
+        "targets": [
+          {
+            "kind": "app",
+            "id": "chrome",
+            "displayName": "Chrome",
+            "platform": "windows",
+            "matchers": [
+              {
+                "platform": "windows",
+                "matcher": "chrome.exe"
+              }
+            ],
+            "category": "LIMITED"
+          }
+        ]
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "tue",
+        "minutesSinceMidnight": 1350,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "OUTSIDE_SCHEDULE"
+      }
+    },
+    {
+      "id": "schedule-end-closer-than-quota",
+      "activity": {
+        "app": "chrome.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 180
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 180
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 180
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 180
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 180
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 180
+          },
+          "sun": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 180
+          }
+        },
+        "targets": [
+          {
+            "kind": "app",
+            "id": "chrome",
+            "displayName": "Chrome",
+            "platform": "windows",
+            "matchers": [
+              {
+                "platform": "windows",
+                "matcher": "chrome.exe"
+              }
+            ],
+            "category": "LIMITED",
+            "dailyQuotaMinutes": {
+              "default": 60
+            }
+          }
+        ]
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {
+          "chrome": 0
+        }
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "tue",
+        "minutesSinceMidnight": 1170,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "LIMITED_OK",
+        "remainingMinutes": 30,
+        "warnAt": 25
+      }
+    },
+    {
+      "id": "total-budget-exhausted",
+      "activity": {
+        "app": "chrome.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 120
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 120
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 120
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 120
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 120
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 120
+          },
+          "sun": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 120
+          }
+        },
+        "targets": [
+          {
+            "kind": "app",
+            "id": "chrome",
+            "displayName": "Chrome",
+            "platform": "windows",
+            "matchers": [
+              {
+                "platform": "windows",
+                "matcher": "chrome.exe"
+              }
+            ],
+            "category": "LIMITED"
+          }
+        ]
+      },
+      "usage": {
+        "totalLimitedMinutes": 120,
+        "perTarget": {
+          "chrome": 60
+        }
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "tue",
+        "minutesSinceMidnight": 600,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "OUT_OF_TIME",
+        "reason": "quota-or-schedule"
+      }
+    },
+    {
+      "id": "warn-approaching",
+      "activity": {
+        "app": "chrome.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "sun": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": [
+          {
+            "kind": "app",
+            "id": "chrome",
+            "displayName": "Chrome",
+            "platform": "windows",
+            "matchers": [
+              {
+                "platform": "windows",
+                "matcher": "chrome.exe"
+              }
+            ],
+            "category": "LIMITED",
+            "dailyQuotaMinutes": {
+              "default": 30
+            }
+          }
+        ]
+      },
+      "usage": {
+        "totalLimitedMinutes": 26,
+        "perTarget": {
+          "chrome": 26
+        }
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "tue",
+        "minutesSinceMidnight": 600,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "WARN",
+        "remainingMinutes": 4,
+        "reason": "approaching-limit"
+      }
+    },
+    {
+      "id": "temp-unlock-schedule",
+      "activity": {
+        "app": "chrome.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 120
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 120
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 120
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 120
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 120
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 120
+          },
+          "sun": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 120
+          }
+        },
+        "targets": [
+          {
+            "kind": "app",
+            "id": "chrome",
+            "displayName": "Chrome",
+            "platform": "windows",
+            "matchers": [
+              {
+                "platform": "windows",
+                "matcher": "chrome.exe"
+              }
+            ],
+            "category": "LIMITED",
+            "dailyQuotaMinutes": {
+              "default": 30
+            }
+          }
+        ]
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "tue",
+        "minutesSinceMidnight": 1350,
+        "epochMs": 1000
+      },
+      "tempUnlocks": [
+        {
+          "id": "u1",
+          "deviceId": "d1",
+          "scope": "schedule",
+          "expiresAtMs": 2000000,
+          "revoked": false
+        }
+      ],
+      "expected": {
+        "kind": "LIMITED_OK",
+        "remainingMinutes": 30,
+        "warnAt": 25
+      }
+    },
+    {
+      "id": "add-minutes-youtube",
+      "activity": {
+        "app": "chrome.exe",
+        "url": "youtube.com/watch",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "sun": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": [
+          {
+            "kind": "url",
+            "id": "youtube.com",
+            "displayName": "YouTube",
+            "pattern": "youtube.com",
+            "category": "LIMITED",
+            "dailyQuotaMinutes": {
+              "default": 30
+            }
+          }
+        ]
+      },
+      "usage": {
+        "totalLimitedMinutes": 30,
+        "perTarget": {
+          "youtube.com": 30
+        }
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "tue",
+        "minutesSinceMidnight": 600,
+        "epochMs": 1000
+      },
+      "tempUnlocks": [
+        {
+          "id": "u2",
+          "deviceId": "d1",
+          "scope": "add-minutes",
+          "target": "youtube.com",
+          "additionalMinutes": 15,
+          "expiresAtMs": 2000000,
+          "revoked": false
+        }
+      ],
+      "expected": {
+        "kind": "LIMITED_OK",
+        "remainingMinutes": 15,
+        "warnAt": 10
+      }
+    },
+    {
+      "id": "url-longest-prefix",
+      "activity": {
+        "app": "chrome.exe",
+        "url": "https://youtube.com/kids/watch",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "sun": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": [
+          {
+            "kind": "url",
+            "id": "yt",
+            "displayName": "YouTube",
+            "pattern": "youtube.com",
+            "category": "LIMITED",
+            "dailyQuotaMinutes": {
+              "default": 60
+            }
+          },
+          {
+            "kind": "url",
+            "id": "yt-kids",
+            "displayName": "YT Kids",
+            "pattern": "youtube.com/kids/",
+            "category": "ALLOWED"
+          }
+        ]
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "tue",
+        "minutesSinceMidnight": 600,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "ALLOWED"
+      }
+    },
+    {
+      "id": "notepad-url-ignored",
+      "activity": {
+        "app": "notepad.exe",
+        "url": "anything",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          },
+          "sun": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": [
+          {
+            "kind": "url",
+            "id": "blocked-url",
+            "displayName": "X",
+            "pattern": "anything",
+            "category": "BLOCKED"
+          }
+        ]
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "tue",
+        "minutesSinceMidnight": 600,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "LIMITED_OK",
+        "remainingMinutes": 600,
+        "warnAt": 595
+      }
+    },
+    {
+      "id": "generated-mon-540-0",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "mon",
+        "minutesSinceMidnight": 540,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "LIMITED_OK",
+        "remainingMinutes": 60,
+        "warnAt": 55
+      }
+    },
+    {
+      "id": "generated-mon-600-1",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "mon",
+        "minutesSinceMidnight": 600,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "LIMITED_OK",
+        "remainingMinutes": 60,
+        "warnAt": 55
+      }
+    },
+    {
+      "id": "generated-mon-1170-2",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "mon",
+        "minutesSinceMidnight": 1170,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "LIMITED_OK",
+        "remainingMinutes": 30,
+        "warnAt": 25
+      }
+    },
+    {
+      "id": "generated-mon-1350-3",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "mon",
+        "minutesSinceMidnight": 1350,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "OUTSIDE_SCHEDULE"
+      }
+    },
+    {
+      "id": "generated-tue-540-4",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "tue",
+        "minutesSinceMidnight": 540,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "LIMITED_OK",
+        "remainingMinutes": 60,
+        "warnAt": 55
+      }
+    },
+    {
+      "id": "generated-tue-600-5",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "tue",
+        "minutesSinceMidnight": 600,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "LIMITED_OK",
+        "remainingMinutes": 60,
+        "warnAt": 55
+      }
+    },
+    {
+      "id": "generated-tue-1170-6",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "tue",
+        "minutesSinceMidnight": 1170,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "LIMITED_OK",
+        "remainingMinutes": 30,
+        "warnAt": 25
+      }
+    },
+    {
+      "id": "generated-tue-1350-7",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "tue",
+        "minutesSinceMidnight": 1350,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "OUTSIDE_SCHEDULE"
+      }
+    },
+    {
+      "id": "generated-wed-540-8",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "wed",
+        "minutesSinceMidnight": 540,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "LIMITED_OK",
+        "remainingMinutes": 60,
+        "warnAt": 55
+      }
+    },
+    {
+      "id": "generated-wed-600-9",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "wed",
+        "minutesSinceMidnight": 600,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "LIMITED_OK",
+        "remainingMinutes": 60,
+        "warnAt": 55
+      }
+    },
+    {
+      "id": "generated-wed-1170-10",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "wed",
+        "minutesSinceMidnight": 1170,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "LIMITED_OK",
+        "remainingMinutes": 30,
+        "warnAt": 25
+      }
+    },
+    {
+      "id": "generated-wed-1350-11",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "wed",
+        "minutesSinceMidnight": 1350,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "OUTSIDE_SCHEDULE"
+      }
+    },
+    {
+      "id": "generated-thu-540-12",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "thu",
+        "minutesSinceMidnight": 540,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "LIMITED_OK",
+        "remainingMinutes": 60,
+        "warnAt": 55
+      }
+    },
+    {
+      "id": "generated-thu-600-13",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "thu",
+        "minutesSinceMidnight": 600,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "LIMITED_OK",
+        "remainingMinutes": 60,
+        "warnAt": 55
+      }
+    },
+    {
+      "id": "generated-thu-1170-14",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "thu",
+        "minutesSinceMidnight": 1170,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "LIMITED_OK",
+        "remainingMinutes": 30,
+        "warnAt": 25
+      }
+    },
+    {
+      "id": "generated-thu-1350-15",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "thu",
+        "minutesSinceMidnight": 1350,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "OUTSIDE_SCHEDULE"
+      }
+    },
+    {
+      "id": "generated-fri-540-16",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "fri",
+        "minutesSinceMidnight": 540,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "LIMITED_OK",
+        "remainingMinutes": 60,
+        "warnAt": 55
+      }
+    },
+    {
+      "id": "generated-fri-600-17",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "fri",
+        "minutesSinceMidnight": 600,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "LIMITED_OK",
+        "remainingMinutes": 60,
+        "warnAt": 55
+      }
+    },
+    {
+      "id": "generated-fri-1170-18",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "fri",
+        "minutesSinceMidnight": 1170,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "LIMITED_OK",
+        "remainingMinutes": 30,
+        "warnAt": 25
+      }
+    },
+    {
+      "id": "generated-fri-1350-19",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "fri",
+        "minutesSinceMidnight": 1350,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "OUTSIDE_SCHEDULE"
+      }
+    },
+    {
+      "id": "generated-sat-540-20",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "sat",
+        "minutesSinceMidnight": 540,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "LIMITED_OK",
+        "remainingMinutes": 60,
+        "warnAt": 55
+      }
+    },
+    {
+      "id": "generated-sat-600-21",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "sat",
+        "minutesSinceMidnight": 600,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "LIMITED_OK",
+        "remainingMinutes": 60,
+        "warnAt": 55
+      }
+    },
+    {
+      "id": "generated-sat-1170-22",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "sat",
+        "minutesSinceMidnight": 1170,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "LIMITED_OK",
+        "remainingMinutes": 30,
+        "warnAt": 25
+      }
+    },
+    {
+      "id": "generated-sat-1350-23",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "sat",
+        "minutesSinceMidnight": 1350,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "OUTSIDE_SCHEDULE"
+      }
+    },
+    {
+      "id": "generated-sun-540-24",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "sun",
+        "minutesSinceMidnight": 540,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "OUTSIDE_SCHEDULE"
+      }
+    },
+    {
+      "id": "generated-sun-600-25",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "sun",
+        "minutesSinceMidnight": 600,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "OUTSIDE_SCHEDULE"
+      }
+    },
+    {
+      "id": "generated-sun-1170-26",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "sun",
+        "minutesSinceMidnight": 1170,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "OUTSIDE_SCHEDULE"
+      }
+    },
+    {
+      "id": "generated-sun-1350-27",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 60
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {}
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "sun",
+        "minutesSinceMidnight": 1350,
+        "epochMs": 0
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "OUTSIDE_SCHEDULE"
+      }
+    },
+    {
+      "id": "auto-mon-480-0",
+      "activity": {
+        "app": "chrome.exe",
+        "url": "en.wikipedia.org/wiki/Test",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          },
+          "tue": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          },
+          "wed": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          },
+          "thu": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          },
+          "fri": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          },
+          "sat": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": [
+          {
+            "kind": "url",
+            "id": "wiki",
+            "displayName": "Wiki",
+            "pattern": "*.wikipedia.org",
+            "category": "ALLOWED"
+          }
+        ]
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {
+          "chrome": 0
+        }
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "mon",
+        "minutesSinceMidnight": 480,
+        "epochMs": 1000000
+      },
+      "tempUnlocks": [
+        {
+          "id": "u0",
+          "deviceId": "d1",
+          "scope": "schedule+quotas",
+          "expiresAtMs": 9999999,
+          "revoked": false
+        }
+      ],
+      "expected": {
+        "kind": "ALLOWED"
+      }
+    },
+    {
+      "id": "auto-tue-540-1",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "sun": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 20,
+        "perTarget": {
+          "chrome": 25
+        }
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "tue",
+        "minutesSinceMidnight": 540,
+        "epochMs": 1000001
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "LIMITED_OK",
+        "remainingMinutes": 70,
+        "warnAt": 65
+      }
+    },
+    {
+      "id": "auto-wed-600-2",
+      "activity": {
+        "app": "chrome.exe",
+        "url": "en.wikipedia.org/wiki/Test",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "sun": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 40,
+        "perTarget": {
+          "chrome": 0
+        }
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "wed",
+        "minutesSinceMidnight": 600,
+        "epochMs": 1000002
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "LIMITED_OK",
+        "remainingMinutes": 50,
+        "warnAt": 45
+      }
+    },
+    {
+      "id": "auto-thu-1170-3",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          },
+          "tue": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          },
+          "wed": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          },
+          "thu": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          },
+          "fri": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          },
+          "sat": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 60,
+        "perTarget": {
+          "chrome": 0
+        }
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "thu",
+        "minutesSinceMidnight": 1170,
+        "epochMs": 1000003
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "OUTSIDE_SCHEDULE"
+      }
+    },
+    {
+      "id": "auto-fri-1350-4",
+      "activity": {
+        "app": "chrome.exe",
+        "url": "en.wikipedia.org/wiki/Test",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "sun": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {
+          "chrome": 25
+        }
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "fri",
+        "minutesSinceMidnight": 1350,
+        "epochMs": 1000004
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "OUTSIDE_SCHEDULE"
+      }
+    },
+    {
+      "id": "auto-sat-0-5",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "sun": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          }
+        },
+        "targets": [
+          {
+            "kind": "url",
+            "id": "wiki",
+            "displayName": "Wiki",
+            "pattern": "*.wikipedia.org",
+            "category": "ALLOWED"
+          }
+        ]
+      },
+      "usage": {
+        "totalLimitedMinutes": 20,
+        "perTarget": {
+          "chrome": 0
+        }
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "sat",
+        "minutesSinceMidnight": 0,
+        "epochMs": 1000005
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "OUTSIDE_SCHEDULE"
+      }
+    },
+    {
+      "id": "auto-sun-30-6",
+      "activity": {
+        "app": "chrome.exe",
+        "url": "en.wikipedia.org/wiki/Test",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          },
+          "tue": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          },
+          "wed": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          },
+          "thu": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          },
+          "fri": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          },
+          "sat": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 40,
+        "perTarget": {
+          "chrome": 0
+        }
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "sun",
+        "minutesSinceMidnight": 30,
+        "epochMs": 1000006
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "OUTSIDE_SCHEDULE"
+      }
+    },
+    {
+      "id": "auto-mon-480-7",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "sun": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 60,
+        "perTarget": {
+          "chrome": 25
+        }
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "mon",
+        "minutesSinceMidnight": 480,
+        "epochMs": 1000007
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "OUTSIDE_SCHEDULE"
+      }
+    },
+    {
+      "id": "auto-tue-540-8",
+      "activity": {
+        "app": "chrome.exe",
+        "url": "en.wikipedia.org/wiki/Test",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "sun": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {
+          "chrome": 0
+        }
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "tue",
+        "minutesSinceMidnight": 540,
+        "epochMs": 1000008
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "LIMITED_OK",
+        "remainingMinutes": 90,
+        "warnAt": 85
+      }
+    },
+    {
+      "id": "auto-wed-600-9",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          },
+          "tue": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          },
+          "wed": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          },
+          "thu": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          },
+          "fri": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          },
+          "sat": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 20,
+        "perTarget": {
+          "chrome": 0
+        }
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "wed",
+        "minutesSinceMidnight": 600,
+        "epochMs": 1000009
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "OUTSIDE_SCHEDULE"
+      }
+    },
+    {
+      "id": "auto-thu-1170-10",
+      "activity": {
+        "app": "chrome.exe",
+        "url": "en.wikipedia.org/wiki/Test",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "sun": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          }
+        },
+        "targets": [
+          {
+            "kind": "url",
+            "id": "wiki",
+            "displayName": "Wiki",
+            "pattern": "*.wikipedia.org",
+            "category": "ALLOWED"
+          }
+        ]
+      },
+      "usage": {
+        "totalLimitedMinutes": 40,
+        "perTarget": {
+          "chrome": 25
+        }
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "thu",
+        "minutesSinceMidnight": 1170,
+        "epochMs": 1000010
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "ALLOWED"
+      }
+    },
+    {
+      "id": "auto-fri-1350-11",
+      "activity": {
+        "app": "game.exe",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "tue": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "wed": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "thu": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "fri": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "sat": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          },
+          "sun": {
+            "schedule": [
+              {
+                "start": "09:00",
+                "end": "20:00"
+              }
+            ],
+            "dailyTotalMinutes": 90
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 60,
+        "perTarget": {
+          "chrome": 0
+        }
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "fri",
+        "minutesSinceMidnight": 1350,
+        "epochMs": 1000011
+      },
+      "tempUnlocks": [
+        {
+          "id": "u11",
+          "deviceId": "d1",
+          "scope": "schedule+quotas",
+          "expiresAtMs": 9999999,
+          "revoked": false
+        }
+      ],
+      "expected": {
+        "kind": "LIMITED_OK",
+        "remainingMinutes": 9999,
+        "warnAt": 9994
+      }
+    },
+    {
+      "id": "auto-sat-0-12",
+      "activity": {
+        "app": "chrome.exe",
+        "url": "en.wikipedia.org/wiki/Test",
+        "platform": "windows"
+      },
+      "rules": {
+        "version": 1,
+        "defaults": {
+          "warningLeadMinutes": 5,
+          "gracePeriodSeconds": 120
+        },
+        "weekly": {
+          "mon": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          },
+          "tue": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          },
+          "wed": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          },
+          "thu": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          },
+          "fri": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          },
+          "sat": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          },
+          "sun": {
+            "schedule": [],
+            "dailyTotalMinutes": null
+          }
+        },
+        "targets": []
+      },
+      "usage": {
+        "totalLimitedMinutes": 0,
+        "perTarget": {
+          "chrome": 0
+        }
+      },
+      "nowLocal": {
+        "localDate": "2026-05-19",
+        "dayOfWeek": "sat",
+        "minutesSinceMidnight": 0,
+        "epochMs": 1000012
+      },
+      "tempUnlocks": [],
+      "expected": {
+        "kind": "OUTSIDE_SCHEDULE"
+      }
+    }
+  ]
+}

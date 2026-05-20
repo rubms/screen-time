@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://screen-time-control.dev/schemas/common.json",
+  "definitions": {
+    "category": {
+      "type": "string",
+      "enum": ["BLOCKED", "LIMITED", "ALLOWED"]
+    },
+    "platform": {
+      "type": "string",
+      "enum": ["windows", "android", "any"]
+    },
+    "dayOfWeek": {
+      "type": "string",
+      "enum": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
+    },
+    "scheduleWindow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["start", "end"],
+      "properties": {
+        "start": { "type": "string", "pattern": "^\\d{2}:\\d{2}$" },
+        "end": { "type": "string", "pattern": "^\\d{2}:\\d{2}$" }
+      }
+    },
+    "dailyQuotaMinutes": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "default": { "type": "integer", "minimum": 0 },
+        "mon": { "type": "integer", "minimum": 0 },
+        "tue": { "type": "integer", "minimum": 0 },
+        "wed": { "type": "integer", "minimum": 0 },
+        "thu": { "type": "integer", "minimum": 0 },
+        "fri": { "type": "integer", "minimum": 0 },
+        "sat": { "type": "integer", "minimum": 0 },
+        "sun": { "type": "integer", "minimum": 0 }
+      }
+    }
+  }
+}

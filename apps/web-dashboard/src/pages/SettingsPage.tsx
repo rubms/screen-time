@@ -22,6 +22,7 @@ export function SettingsPage() {
   const [inviteEmail, setInviteEmail] = useState("");
   const [parents, setParents] = useState<Array<{ id: string; email?: string }>>([]);
   const [message, setMessage] = useState<string | null>(null);
+  const [familyIdCopied, setFamilyIdCopied] = useState(false);
 
   useEffect(() => {
     setDisplayName(family?.displayName ?? "");
@@ -69,6 +70,13 @@ export function SettingsPage() {
     setMessage(`Invite recorded for ${inviteEmail}. They can sign in with Google.`);
   };
 
+  const copyFamilyId = async () => {
+    if (!familyId) return;
+    await navigator.clipboard.writeText(familyId);
+    setFamilyIdCopied(true);
+    setTimeout(() => setFamilyIdCopied(false), 2000);
+  };
+
   const downloadDiagnostics = async () => {
     if (!familyId) return;
     const db = getDb();
@@ -86,10 +94,12 @@ export function SettingsPage() {
       const evSnap = await getDocs(
         collection(db, "families", familyId, "devices", dev.id, "events"),
       );
-      evSnap.docs.slice(-50).forEach((e) => events.push({ deviceId: dev.id, ...e.data() }));
+      evSnap.docs
+        .slice(-50)
+        .forEach((e) => events.push({ deviceId: dev.id, ...e.data() }));
     }
     const blob = new Blob(
-      [JSON.stringify({ projectId: getProjectId(), rules, events }, null, 2)],
+      [JSON.stringify({ projectId: getProjectId(), familyId, rules, events }, null, 2)],
       { type: "application/json" },
     );
     const url = URL.createObjectURL(blob);
@@ -119,6 +129,24 @@ export function SettingsPage() {
         <Button className="mt-3" onClick={saveFamilyName}>
           Save name
         </Button>
+        {familyId && (
+          <div className="mt-4 pt-4 border-t border-slate-200">
+            <Input
+              label="Family ID"
+              value={familyId}
+              readOnly
+              className="font-mono text-xs"
+              onFocus={(e) => e.target.select()}
+            />
+            <p className="text-xs text-slate-500 mt-1">
+              Use with the Windows agent: <code className="text-xs">--family-id</code>{" "}
+              or <code className="text-xs">SCREEN_TIME_FAMILY_ID</code>.
+            </p>
+            <Button className="mt-2" variant="secondary" onClick={copyFamilyId}>
+              {familyIdCopied ? "Copied!" : "Copy family ID"}
+            </Button>
+          </div>
+        )}
       </Card>
 
       <Card>

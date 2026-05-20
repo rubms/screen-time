@@ -26,6 +26,11 @@ def main(argv: list[str] | None = None) -> None:
     pair = sub.add_parser("pair", help="Pair device with 6-char code")
     pair.add_argument("--code", required=True)
     pair.add_argument("--name", default=None, help="Device display name")
+    pair.add_argument(
+        "--family-id",
+        default=None,
+        help="Family document id (or set SCREEN_TIME_FAMILY_ID)",
+    )
 
     sub.add_parser("debug-run", help="Run agent in foreground (mock watcher off-Windows)")
 
@@ -40,7 +45,7 @@ def main(argv: list[str] | None = None) -> None:
     elif args.command == "pair":
         from screen_time_agent.pairing import pair_device
 
-        pair_device(args.code, display_name=args.name)
+        pair_device(args.code, display_name=args.name, family_id=args.family_id)
         print("Paired successfully.")
     elif args.command == "debug-run":
         _debug_run()

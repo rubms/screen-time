@@ -4,7 +4,7 @@ import android.content.Context
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
-import com.google.firebase.functions.FirebaseFunctions
+import com.screentimecontrol.agent.FirebaseFunctionsProvider
 import com.screentimecontrol.agent.BuildConfig
 import com.screentimecontrol.agent.data.LocalStateStore
 import com.screentimecontrol.agent.data.local.UnlocksCacheEntity
@@ -32,7 +32,7 @@ class FirestoreSync(
     }
 
     suspend fun redeemPairingCode(code: String, deviceName: String): PairingResult {
-        val functions = FirebaseFunctions.getInstance()
+        val functions = FirebaseFunctionsProvider.get()
         val result = functions
             .getHttpsCallable("redeemPairingCode")
             .call(

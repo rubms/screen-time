@@ -12,7 +12,7 @@ import androidx.work.ExistingWorkPolicy
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
-import com.google.firebase.functions.FirebaseFunctions
+import com.screentimecontrol.agent.FirebaseFunctionsProvider
 import com.screentimecontrol.agent.BuildConfig
 import com.screentimecontrol.agent.R
 import com.screentimecontrol.agent.ScreenTimeApplication
@@ -36,7 +36,7 @@ class UpdateWorker(
     }
 
     private suspend fun checkForUpdate() {
-        val result = FirebaseFunctions.getInstance()
+        val result = FirebaseFunctionsProvider.get()
             .getHttpsCallable("getUpdateManifest")
             .call(
                 mapOf(

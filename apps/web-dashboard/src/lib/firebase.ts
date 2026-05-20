@@ -1,7 +1,15 @@
 import { initializeApp, type FirebaseApp } from "firebase/app";
 import { connectAuthEmulator, getAuth, GoogleAuthProvider } from "firebase/auth";
 import { connectFirestoreEmulator, getFirestore } from "firebase/firestore";
-import { connectFunctionsEmulator, getFunctions } from "firebase/functions";
+import {
+  connectFunctionsEmulator,
+  getFunctions,
+  type Functions,
+} from "firebase/functions";
+
+/** Must match firebase/functions/src/config.ts (Firestore: europe-west1). */
+export const FIREBASE_FUNCTIONS_REGION =
+  import.meta.env.VITE_FIREBASE_FUNCTIONS_REGION ?? "europe-west1";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -27,8 +35,7 @@ export function getFirebaseApp(): FirebaseApp {
 
 function connectEmulators(firebaseApp: FirebaseApp) {
   if (emulatorsConnected) return;
-  const authHost =
-    import.meta.env.VITE_FIREBASE_AUTH_EMULATOR_HOST ?? "127.0.0.1:9099";
+  const authHost = import.meta.env.VITE_FIREBASE_AUTH_EMULATOR_HOST ?? "127.0.0.1:9099";
   const firestoreHost =
     import.meta.env.VITE_FIREBASE_FIRESTORE_EMULATOR_HOST ?? "127.0.0.1:8080";
 
@@ -39,7 +46,7 @@ function connectEmulators(firebaseApp: FirebaseApp) {
   const [fsHost, fsPort] = firestoreHost.split(":");
   connectFirestoreEmulator(db, fsHost ?? "127.0.0.1", Number(fsPort ?? 8080));
 
-  const functions = getFunctions(firebaseApp);
+  const functions = getFunctions(firebaseApp, FIREBASE_FUNCTIONS_REGION);
   connectFunctionsEmulator(functions, fsHost ?? "127.0.0.1", 5001);
 
   emulatorsConnected = true;
@@ -57,4 +64,8 @@ export const googleProvider = new GoogleAuthProvider();
 
 export function getProjectId(): string {
   return import.meta.env.VITE_FIREBASE_PROJECT_ID;
+}
+
+export function getFirebaseFunctions(): Functions {
+  return getFunctions(getFirebaseApp(), FIREBASE_FUNCTIONS_REGION);
 }

@@ -7,7 +7,18 @@ import {
   initializeTestEnvironment,
   type RulesTestEnvironment,
 } from "@firebase/rules-unit-testing";
-import { doc, getDoc, setDoc, updateDoc, collection, addDoc } from "firebase/firestore";
+import {
+  doc,
+  getDoc,
+  setDoc,
+  updateDoc,
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  where,
+  limit,
+} from "firebase/firestore";
 
 const PROJECT_ID = "screen-time-control-rules-test";
 const EMULATOR_HOST = process.env.FIRESTORE_EMULATOR_HOST ?? "127.0.0.1:8080";
@@ -52,11 +63,7 @@ function parentDb(uid: string) {
   return testEnv.authenticatedContext(uid, { email: `${uid}@test.com` }).firestore();
 }
 
-function deviceDb(claims: {
-  familyId: string;
-  childId: string;
-  deviceId: string;
-}) {
+function deviceDb(claims: { familyId: string; childId: string; deviceId: string }) {
   return testEnv
     .authenticatedContext(claims.deviceId, {
       familyId: claims.familyId,
@@ -116,11 +123,65 @@ describe.skipIf(skipRulesTests)("firestore.rules", () => {
     await assertSucceeds(getDoc(doc(db, "families/fam1/children/child1")));
   });
 
+  it("allows owner to query family by ownerUid without parent doc yet", async () => {
+    await testEnv.withSecurityRulesDisabled(async (ctx) => {
+      const adminDb = ctx.firestore();
+      await setDoc(doc(adminDb, "families/fam-bootstrap"), {
+        ownerUid: "owner-bootstrap",
+        displayName: "Bootstrap",
+        schemaVersion: 1,
+        createdAt: new Date(),
+      });
+    });
+    const db = parentDb("owner-bootstrap");
+    const ownerQ = query(
+      collection(db, "families"),
+      where("ownerUid", "==", "owner-bootstrap"),
+      limit(1),
+    );
+    await assertSucceeds(getDocs(ownerQ));
+  });
+
+  it("allows owner to create family and bootstrap parent doc", async () => {
+    const db = parentDb("new-owner");
+    await assertSucceeds(
+      setDoc(doc(db, "families/fam-new"), {
+        ownerUid: "new-owner",
+        displayName: "My Family",
+        schemaVersion: 1,
+        createdAt: new Date(),
+      }),
+    );
+    await assertSucceeds(
+      setDoc(doc(db, "families/fam-new/parents/new-owner"), {
+        uid: "new-owner",
+        role: "owner",
+        addedAt: new Date(),
+      }),
+    );
+  });
+
   it("denies non-member from reading family data", async () => {
     await seedFamily("fam1", "parent1");
     const db = parentDb("stranger");
     await assertFails(getDoc(doc(db, "families/fam1")));
     await assertFails(getDoc(doc(db, "families/fam1/children/child1")));
+  });
+
+  it("allows owner to merge-update displayName without parent doc yet", async () => {
+    await testEnv.withSecurityRulesDisabled(async (ctx) => {
+      const adminDb = ctx.firestore();
+      await setDoc(doc(adminDb, "families/fam-merge"), {
+        ownerUid: "owner-merge",
+        displayName: "My Family",
+        schemaVersion: 1,
+        createdAt: new Date(),
+      });
+    });
+    const db = parentDb("owner-merge");
+    await assertSucceeds(
+      setDoc(doc(db, "families/fam-merge"), { displayName: "Ruben" }, { merge: true }),
+    );
   });
 
   it("allows only owner to update family root", async () => {
@@ -177,9 +238,7 @@ describe.skipIf(skipRulesTests)("firestore.rules", () => {
         doc(adminDb, "families/fam1/devices/device1/events/event1"),
       );
       if (!events.exists) {
-        const snap = await getDoc(
-          doc(adminDb, "families/fam1/devices/device1/events"),
-        );
+        const snap = await getDoc(doc(adminDb, "families/fam1/devices/device1/events"));
         void snap;
       }
     });

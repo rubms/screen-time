@@ -8,7 +8,7 @@ import { RulesEditorPage } from "@/pages/RulesEditorPage";
 import { SettingsPage } from "@/pages/SettingsPage";
 
 function ProtectedRoutes() {
-  const { user, familyId, loading } = useAuth();
+  const { user, familyId, loading, error } = useAuth();
 
   if (loading) {
     return (
@@ -24,8 +24,9 @@ function ProtectedRoutes() {
 
   if (!familyId) {
     return (
-      <div className="min-h-screen flex items-center justify-center p-4 text-center text-red-600">
-        Could not resolve family. Check Firestore rules and try again.
+      <div className="min-h-screen flex flex-col items-center justify-center gap-2 p-4 text-center text-red-600">
+        <p>Could not resolve family. Check Firestore rules and try again.</p>
+        {error ? <p className="text-sm text-slate-600">{error}</p> : null}
       </div>
     );
   }

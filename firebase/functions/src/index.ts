@@ -1,3 +1,6 @@
+import "./config";
+
+export { ensureFamilyProfile } from "./ensureFamilyProfile";
 export { redeemPairingCode } from "./redeemPairingCode";
 export { validateTempUnlock } from "./validateTempUnlock";
 export { rollupDaily } from "./rollupDaily";

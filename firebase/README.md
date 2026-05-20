@@ -4,12 +4,12 @@ Per-family Firebase project hosting Firestore, Cloud Functions, and Hosting for 
 
 ## Layout
 
-| Path | Purpose |
-|------|---------|
-| `firestore.rules` | Security rules (parent vs device roles) |
-| `firestore.indexes.json` | Composite indexes |
-| `firebase.json` | Emulator ports, hosting rewrites, functions predeploy |
-| `functions/` | TypeScript Cloud Functions (`@screen-time-control/functions`) |
+| Path                     | Purpose                                                       |
+| ------------------------ | ------------------------------------------------------------- |
+| `firestore.rules`        | Security rules (parent vs device roles)                       |
+| `firestore.indexes.json` | Composite indexes                                             |
+| `firebase.json`          | Emulator ports, hosting rewrites, functions predeploy         |
+| `functions/`             | TypeScript Cloud Functions (`@screen-time-control/functions`) |
 
 ## Functions
 
@@ -49,18 +49,33 @@ cd firebase/functions && npm exec pnpm@9.15.0 run test:emulators
 
 ## Deploy
 
+Requires **Blaze (pay-as-you-go)** for Cloud Functions.
+
 ```bash
 ./scripts/firebase-setup.sh --list
 ./scripts/firebase-setup.sh screen-time-54d26   # use your real Project ID
-# or: ./scripts/firebase-setup.sh screen-time      # resolves display name → ID
-
-./scripts/firebase-setup.sh --new my-unique-id    # only when creating a new project
 ```
 
 Manual deploy (after `firebase/.firebaserc` points at your project):
 
 ```bash
-firebase deploy --only firestore:rules,firestore:indexes,functions,hosting
+cd firebase
+bash scripts/build-functions.sh
+firebase deploy --only firestore:rules,functions,hosting --project screen-time-54d26
 ```
+
+From repo root (dashboard build + hosting):
+
+```bash
+pnpm run build:hosting
+cd firebase && firebase deploy --only functions,hosting
+```
+
+Functions deploy to **`europe-west1`** (same region as Firestore). After a region
+change, redeploy functions; old `us-central1` copies can be deleted in the console.
+
+After deploy, **Functions** in the console should list: `ensureFamilyProfile`,
+`redeemPairingCode`, `verifyParentPin`, `getUpdateManifest`, `rollupDaily`,
+`cleanupOldEvents`, `validateTempUnlock`.
 
 Set `UPDATE_REPO=owner/screen-time-control` on Cloud Functions for agent updates.

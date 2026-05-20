@@ -14,7 +14,7 @@
         "firebase-debug.*.log",
         "*.local"
       ],
-      "predeploy": ["npm run build --prefix functions"]
+      "predeploy": ["bash scripts/build-functions.sh"]
     }
   ],
   "hosting": {

@@ -32,15 +32,18 @@ service cloud.firestore {
       }
 
       // Family root document
-      allow read: if isParent();
+      allow read: if isParent()
+        || (request.auth != null && resource.data.ownerUid == request.auth.uid);
       allow create: if request.auth != null
         && request.auth.uid == request.resource.data.ownerUid;
+      // Owner may patch fields (e.g. displayName) without resending ownerUid on merge writes.
       allow update: if isParent()
-        && request.auth.uid == resource.data.ownerUid;
+        || (request.auth != null && resource.data.ownerUid == request.auth.uid);
       allow delete: if false;
 
       match /parents/{uid} {
-        allow read: if isParent();
+        allow read: if isParent()
+          || (request.auth != null && request.auth.uid == uid);
         // Owner bootstrap: first parent doc for the family owner.
         allow create: if isParent()
           || (request.auth != null

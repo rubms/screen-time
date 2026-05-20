@@ -1,4 +1,4 @@
-import { onCall } from "firebase-functions/v2/https";
+import { HttpsError, onCall } from "firebase-functions/v2/https";
 import { FieldValue } from "firebase-admin/firestore";
 import { auth, db } from "./lib/admin";
 import {
@@ -97,12 +97,24 @@ export const redeemPairingCode = onCall(
       });
     });
 
-    const customToken = await auth().createCustomToken(deviceId, {
-      familyId,
-      childId,
-      deviceId,
-      role: "device",
-    });
+    let customToken: string;
+    try {
+      customToken = await auth().createCustomToken(deviceId, {
+        familyId,
+        childId,
+        deviceId,
+        role: "device",
+      });
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err);
+      if (msg.includes("signBlob") || msg.includes("insufficient-permission")) {
+        throw new HttpsError(
+          "failed-precondition",
+          "Cloud Functions cannot mint device tokens yet. Run firebase/scripts/grant-custom-token-signer.sh for this project (Service Account Token Creator on the functions runtime account).",
+        );
+      }
+      throw err;
+    }
 
     return { customToken, familyId, childId, deviceId };
   },

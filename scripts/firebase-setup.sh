@@ -151,6 +151,10 @@ deploy_stack() {
   cd "$ROOT/firebase"
   firebase deploy --only firestore:rules,firestore:indexes,functions,hosting --project "$project_id"
   cd "$ROOT"
+  if [[ -f "$ROOT/firebase/scripts/grant-custom-token-signer.sh" ]]; then
+    echo "==> Ensuring Cloud Functions can mint device auth tokens..."
+    bash "$ROOT/firebase/scripts/grant-custom-token-signer.sh" "$project_id" || true
+  fi
 }
 
 create_new_project() {

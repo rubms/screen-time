@@ -17,18 +17,20 @@ def call_function(url: str, data: dict[str, Any], *, timeout: int = 30) -> dict[
         except ValueError:
             body = {"raw": resp.text}
 
+    def _error_message(err: object) -> str:
+        if isinstance(err, dict):
+            return str(err.get("message") or err.get("status") or err)
+        return str(err)
+
     if resp.status_code >= 400:
         err = body.get("error", body) if isinstance(body, dict) else body
-        message = err.get("message", err) if isinstance(err, dict) else err
-        raise RuntimeError(f"callable failed ({resp.status_code}): {message}")
+        raise RuntimeError(f"callable failed ({resp.status_code}): {_error_message(err)}")
 
     if not isinstance(body, dict):
         raise RuntimeError(f"unexpected callable response: {body!r}")
 
     if "error" in body:
-        err = body["error"]
-        message = err.get("message", err) if isinstance(err, dict) else err
-        raise RuntimeError(f"callable error: {message}")
+        raise RuntimeError(f"callable error: {_error_message(body['error'])}")
 
     result = body.get("result", body)
     if not isinstance(result, dict):

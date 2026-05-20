@@ -79,3 +79,18 @@ After deploy, **Functions** in the console should list: `ensureFamilyProfile`,
 `cleanupOldEvents`, `validateTempUnlock`.
 
 Set `UPDATE_REPO=owner/screen-time-control` on Cloud Functions for agent updates.
+
+### Device pairing (`redeemPairingCode`)
+
+If pairing fails with `iam.serviceAccounts.signBlob` / `insufficient-permission` in
+function logs, the Cloud Functions runtime account needs **Service Account Token
+Creator** so Admin SDK can mint device custom tokens:
+
+```bash
+cd firebase
+bash scripts/grant-custom-token-signer.sh screen-time-54d26
+```
+
+Requires [gcloud](https://cloud.google.com/sdk/docs/install). Without gcloud, add that
+role to `<PROJECT_NUMBER>-compute@developer.gserviceaccount.com` in
+[IAM](https://console.cloud.google.com/iam-admin/iam).

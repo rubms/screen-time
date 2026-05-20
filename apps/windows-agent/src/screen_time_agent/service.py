@@ -17,10 +17,11 @@ def install_service() -> None:
     import win32serviceutil
 
     win32serviceutil.InstallService(
-        ScreenTimeService._svc_reg_class_,  # type: ignore[attr-defined]
+        win32serviceutil.GetServiceClassString(ScreenTimeService),
         SERVICE_NAME,
         SERVICE_DISPLAY,
         startType=win32serviceutil.SERVICE_AUTO_START,
+        description=ScreenTimeService._svc_description_,
     )
 
 

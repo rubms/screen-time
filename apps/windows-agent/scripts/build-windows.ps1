@@ -4,8 +4,7 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-$Root = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
-$AgentRoot = Join-Path $Root "apps" "windows-agent"
+$AgentRoot = Split-Path -Parent $PSScriptRoot
 Set-Location $AgentRoot
 
 Write-Host "Installing dependencies via Poetry..."

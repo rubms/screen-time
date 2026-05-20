@@ -19,6 +19,27 @@ poetry install
 You must run `poetry install` before `poetry run screen-time-agent` (installs the
 `screen_time_agent` package and the `screen-time-agent` CLI script).
 
+Successful install prints:
+
+```text
+Installing the current project: screen-time-windows-agent (0.1.0)
+```
+
+If you see `ModuleNotFoundError: No module named 'screen_time_agent'` or Poetry warns
+the script is not installed, refresh the lockfile and reinstall:
+
+```powershell
+poetry lock
+poetry install
+```
+
+Fallback (same CLI, no script entry point):
+
+```powershell
+$env:PYTHONPATH = "src"
+poetry run python -m screen_time_agent pair --code ABC123 --family-id YOUR_FAMILY_UUID
+```
+
 ## Commands
 
 ```bash

@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "Screen Time Control Windows child agent"
 authors = ["Screen Time Control"]
 readme = "README.md"
+package-mode = true
 packages = [
   { include = "screen_time_agent", from = "src" },
   { include = "screen_time_rules", from = "src" },
